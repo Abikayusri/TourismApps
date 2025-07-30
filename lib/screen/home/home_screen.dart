@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final tourism = tourismList[index];
 
-          return TourismCardWidget(
+          return TourismCard(
             tourism: tourism,
             onTap: () {
               Navigator.pushNamed(
