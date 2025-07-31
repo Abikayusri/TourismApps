@@ -9,13 +9,18 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Tourism Detail")),
+      appBar: AppBar(
+        title: const Text("Tourism Detail"),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Image.network(tourism.image, fit: BoxFit.cover),
+              Image.network(
+                tourism.image,
+                fit: BoxFit.cover,
+              ),
               const SizedBox.square(dimension: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,26 +32,38 @@ class DetailScreen extends StatelessWidget {
                       children: [
                         Text(
                           tourism.name,
-                          style: const TextStyle(fontSize: 18),
+                          style: Theme.of(context).textTheme.headlineLarge,
                         ),
                         Text(
                           tourism.address,
-                          style: const TextStyle(fontSize: 12),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.favorite),
+                      const Icon(
+                        Icons.favorite,
+                        color: Colors.pink,
+                      ),
                       const SizedBox.square(dimension: 4),
-                      Text(tourism.like.toString()),
+                      Text(
+                        tourism.like.toString(),
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      )
                     ],
                   ),
                 ],
               ),
               const SizedBox.square(dimension: 16),
-              Text(tourism.description),
+              Text(
+                tourism.description,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ],
           ),
         ),
