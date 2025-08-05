@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'bookmarks_screen.dart';
-import 'home_screen.dart';
+import '../bookmark/bookmarks_screen.dart';
+import '../home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -18,8 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: switch(_indexBottomNavBar) {
         0 => const HomeScreen(),
-        1 => const BookmarksScreen(),
-        _ => Container(),
+        _ => const BookmarksScreen(),
       },
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indexBottomNavBar,

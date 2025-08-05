@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tourism_app/model/tourism.dart';
+import 'package:tourism_app/screen/detail/bookmark_icon_widget.dart';
 
 class DetailScreen extends StatelessWidget {
   final Tourism tourism;
@@ -11,16 +12,14 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tourism Detail"),
+        actions: [BookmarkIconWidget(tourism: tourism)],
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Image.network(
-                tourism.image,
-                fit: BoxFit.cover,
-              ),
+              Image.network(tourism.image, fit: BoxFit.cover),
               const SizedBox.square(dimension: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,9 +35,7 @@ class DetailScreen extends StatelessWidget {
                         ),
                         Text(
                           tourism.address,
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
+                          style: Theme.of(context).textTheme.labelLarge
                               ?.copyWith(fontWeight: FontWeight.w400),
                         ),
                       ],
@@ -46,15 +43,12 @@ class DetailScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      const Icon(
-                        Icons.favorite,
-                        color: Colors.pink,
-                      ),
+                      const Icon(Icons.favorite, color: Colors.pink),
                       const SizedBox.square(dimension: 4),
                       Text(
                         tourism.like.toString(),
                         style: Theme.of(context).textTheme.bodyLarge,
-                      )
+                      ),
                     ],
                   ),
                 ],
