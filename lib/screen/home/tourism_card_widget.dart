@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../model/tourism.dart';
 
-class TourismCardWidget extends StatelessWidget {
+class TourismCard extends StatelessWidget {
   final Tourism tourism;
 
-  const TourismCardWidget({super.key, required this.tourism});
+  const TourismCard({super.key, required this.tourism});
 
   @override
   Widget build(BuildContext context) {
