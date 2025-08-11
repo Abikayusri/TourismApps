@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/main/index_nav_provider.dart';
 import '../bookmark/bookmarks_screen.dart';
 import '../home/home_screen.dart';
 
@@ -11,21 +13,21 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _indexBottomNavBar = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: switch(_indexBottomNavBar) {
-        0 => const HomeScreen(),
-        _ => const BookmarksScreen(),
-      },
+      body: Consumer<IndexNavProvider>(
+        builder: (context, value, child) {
+          return switch (value.indexBottomNavBar) {
+            0 => const HomeScreen(),
+            _ => const BookmarkScreen(),
+          };
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _indexBottomNavBar,
+        currentIndex: context.watch()<IndexNavProvider>().indexBottomNavBar,
         onTap: (index) {
-          setState(() {
-            _indexBottomNavBar = index;
-          });
+          context.read<IndexNavProvider>().setIndextBottomNavBar = index;
         },
         items: const [
           BottomNavigationBarItem(
