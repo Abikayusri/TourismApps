@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tourism_app/provider/main/index_nav_provider.dart';
+import 'package:tourism_app/screen/bookmark/bookmark_screen.dart';
+import 'package:tourism_app/screen/home/home_screen.dart';
 
-import '../../provider/main/index_nav_provider.dart';
-import '../bookmark/bookmarks_screen.dart';
-import '../home/home_screen.dart';
-
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: context.watch()<IndexNavProvider>().indexBottomNavBar,
+        currentIndex: context.watch<IndexNavProvider>().indexBottomNavBar,
         onTap: (index) {
           context.read<IndexNavProvider>().setIndextBottomNavBar = index;
         },

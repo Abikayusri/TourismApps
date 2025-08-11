@@ -10,9 +10,7 @@ class BookmarkScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Bookmark List"),
-      ),
+      appBar: AppBar(title: const Text("Bookmark List")),
       body: Consumer<BookmarkListProvider>(
         builder: (context, value, child) {
           final bookmarkList = value.bookmarkList;
@@ -28,7 +26,7 @@ class BookmarkScreen extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       NavigationRoute.detailRoute.name,
-                      arguments: tourism,
+                      arguments: tourism.id,
                     );
                   },
                 );
@@ -37,9 +35,7 @@ class BookmarkScreen extends StatelessWidget {
             _ => const Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("No Bookmarked"),
-                ],
+                children: [Text("No Bookmarked")],
               ),
             ),
           };
@@ -48,4 +44,3 @@ class BookmarkScreen extends StatelessWidget {
     );
   }
 }
-

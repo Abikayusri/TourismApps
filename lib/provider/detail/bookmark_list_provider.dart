@@ -1,14 +1,11 @@
 import 'package:flutter/widgets.dart';
-import 'package:tourism_app/model/tourism.dart';
+import 'package:tourism_app/data/model/tourism.dart';
 
 class BookmarkListProvider extends ChangeNotifier {
-// state
   final List<Tourism> _bookmarkList = [];
 
-  // getter
   List<Tourism> get bookmarkList => _bookmarkList;
 
-  // another method
   void addBookmark(Tourism value) {
     _bookmarkList.add(value);
     notifyListeners();
@@ -21,7 +18,7 @@ class BookmarkListProvider extends ChangeNotifier {
 
   bool checkItemBookmark(Tourism value) {
     final tourismInList =
-    _bookmarkList.where((element) => element.id == value.id);
+        _bookmarkList.where((element) => element.id == value.id);
     return tourismInList.isNotEmpty;
   }
 }

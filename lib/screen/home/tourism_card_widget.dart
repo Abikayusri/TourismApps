@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
-
-import '../../model/tourism.dart';
+import 'package:tourism_app/data/model/tourism.dart';
 
 class TourismCard extends StatelessWidget {
   final Tourism tourism;
   final Function() onTap;
 
-  const TourismCard({super.key, required this.tourism, required this.onTap});
+  const TourismCard({
+    super.key,
+    required this.tourism,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        padding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 16,
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,7 +32,10 @@ class TourismCard extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(tourism.image, fit: BoxFit.cover),
+                child: Image.network(
+                  tourism.image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             const SizedBox.square(dimension: 8),
@@ -58,7 +67,10 @@ class TourismCard extends StatelessWidget {
                   const SizedBox.square(dimension: 6),
                   Row(
                     children: [
-                      const Icon(Icons.favorite, color: Colors.pink),
+                      const Icon(
+                        Icons.favorite,
+                        color: Colors.pink,
+                      ),
                       const SizedBox.square(dimension: 4),
                       Expanded(
                         child: Text(
